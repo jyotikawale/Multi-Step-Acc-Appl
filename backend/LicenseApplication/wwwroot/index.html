@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional License Application</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <div class="logo">
+                <h1>License Application Portal</h1>
+                <p class="tagline">Professional Licensing Made Simple</p>
+            </div>
+            <div class="auto-save-indicator" id="autoSaveIndicator">
+                <span class="save-status"></span>
+            </div>
+        </header>
+
+        <main class="application-form" id="applicationForm">
+            <!-- Progress Indicator -->
+            <div class="progress-container">
+                <div class="progress-steps">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Account Type</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Details</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Address</div>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">License Info</div>
+                    </div>
+                    <div class="progress-step" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-label">Review</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+            </div>
+
+            <!-- Form Steps Container -->
+            <div class="form-content">
+                <!-- Step 1: Account Type Selection -->
+                <div class="form-step active" data-step="1" id="step1">
+                    <h2>Select Account Type</h2>
+                    <p class="step-description">Choose the type of license application</p>
+
+                    <div class="form-group">
+                        <label for="accountName" class="required">Account Name</label>
+                        <input type="text" id="accountName" name="accountName" class="form-control"
+                               placeholder="Enter your account name" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="required">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control"
+                               placeholder="your.email@example.com" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="required">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control"
+                               placeholder="(555) 123-4567" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">Account Type</label>
+                        <div class="account-type-cards" id="accountTypeCards">
+                            <!-- Account type cards will be dynamically generated -->
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <!-- Step 2: Personal/Business Details (Dynamic) -->
+                <div class="form-step" data-step="2" id="step2">
+                    <h2>Account Details</h2>
+                    <p class="step-description">Provide specific details for your account type</p>
+                    <div id="dynamicFields">
+                        <!-- Dynamic fields will be injected here based on account type -->
+                    </div>
+                </div>
+
+                <!-- Step 3: Address Information -->
+                <div class="form-step" data-step="3" id="step3">
+                    <h2>Address Information</h2>
+                    <p class="step-description">Enter your mailing address</p>
+
+                    <div class="form-group">
+                        <label for="streetAddress" class="required">Street Address</label>
+                        <input type="text" id="streetAddress" name="streetAddress" class="form-control"
+                               placeholder="123 Main Street" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addressLine2">Address Line 2</label>
+                        <input type="text" id="addressLine2" name="addressLine2" class="form-control"
+                               placeholder="Apt, Suite, Unit, etc. (optional)">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city" class="required">City</label>
+                            <input type="text" id="city" name="city" class="form-control"
+                                   placeholder="City" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state" class="required">State / Union Territory</label>
+                            <select id="state" name="state" class="form-control" required>
+                                <option value="">Select State / UT</option>
+                                <option value="AN">Andaman and Nicobar Islands</option>
+                                <option value="AP">Andhra Pradesh</option>
+                                <option value="AR">Arunachal Pradesh</option>
+                                <option value="AS">Assam</option>
+                                <option value="BR">Bihar</option>
+                                <option value="CH">Chandigarh</option>
+                                <option value="CG">Chhattisgarh</option>
+                                <option value="DN">Dadra and Nagar Haveli and Daman and Diu</option>
+                                <option value="DL">Delhi</option>
+                                <option value="GA">Goa</option>
+                                <option value="GJ">Gujarat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="HP">Himachal Pradesh</option>
+                                <option value="JK">Jammu and Kashmir</option>
+                                <option value="JH">Jharkhand</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="KL">Kerala</option>
+                                <option value="LA">Ladakh</option>
+                                <option value="LD">Lakshadweep</option>
+                                <option value="MP">Madhya Pradesh</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="MN">Manipur</option>
+                                <option value="ML">Meghalaya</option>
+                                <option value="MZ">Mizoram</option>
+                                <option value="NL">Nagaland</option>
+                                <option value="OR">Odisha</option>
+                                <option value="PY">Puducherry</option>
+                                <option value="PB">Punjab</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="SK">Sikkim</option>
+                                <option value="TN">Tamil Nadu</option>
+                                <option value="TS">Telangana</option>
+                                <option value="TR">Tripura</option>
+                                <option value="UP">Uttar Pradesh</option>
+                                <option value="UK">Uttarakhand</option>
+                                <option value="WB">West Bengal</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zipCode" class="required">PIN Code</label>
+                            <input type="text" id="zipCode" name="zipCode" class="form-control"
+                                   placeholder="110001" required maxlength="6">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country" class="required">Country</label>
+                            <input type="text" id="country" name="country" class="form-control"
+                                   value="India" required>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: License Details -->
+                <div class="form-step" data-step="4" id="step4">
+                    <h2>License Information</h2>
+                    <p class="step-description">Provide details about the license you're applying for</p>
+
+                    <div class="form-group">
+                        <label for="licenseType" class="required">License Type</label>
+                        <select id="licenseType" name="licenseType" class="form-control" required>
+                            <option value="">Select License Type</option>
+                            <option value="Professional">Professional License</option>
+                            <option value="Business">Business License</option>
+                            <option value="Occupational">Occupational License</option>
+                            <option value="Medical">Medical License</option>
+                            <option value="Legal">Legal Practice License</option>
+                            <option value="Educational">Educational License</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Have you held a previous license?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="hasPreviousLicense" value="true">
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="hasPreviousLicense" value="false" checked>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="previousLicenseFields" class="conditional-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="previousLicenseNumber">Previous License Number</label>
+                            <input type="text" id="previousLicenseNumber" name="previousLicenseNumber"
+                                   class="form-control" placeholder="Enter previous license number">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="previousLicenseExpiry">Previous License Expiry Date</label>
+                            <input type="date" id="previousLicenseExpiry" name="previousLicenseExpiry"
+                                   class="form-control">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="licensePurpose">Purpose of License</label>
+                        <textarea id="licensePurpose" name="licensePurpose" class="form-control"
+                                  rows="4" placeholder="Briefly describe the purpose for this license"></textarea>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Supporting Documents</label>
+                        <div class="file-upload-zone" id="fileUploadZone">
+                            <div class="upload-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                            </div>
+                            <p class="upload-text">Drag and drop files here, or click to browse</p>
+                            <p class="upload-hint">Accepted formats: PDF, JPG, PNG, DOCX (Max 10MB)</p>
+                            <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png,.docx,.doc" style="display: none;">
+                        </div>
+                        <div id="fileList" class="file-list"></div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Review & Submit -->
+                <div class="form-step" data-step="5" id="step5">
+                    <h2>Review Your Application</h2>
+                    <p class="step-description">Please review your information before submitting</p>
+
+                    <div id="reviewContent" class="review-content">
+                        <!-- Review content will be dynamically generated -->
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeToTerms" name="agreeToTerms" required>
+                            <span>I certify that all information provided is accurate and complete. I understand that
+                                providing false information may result in denial or revocation of the license.</span>
+                        </label>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalNotes">Additional Notes (Optional)</label>
+                        <textarea id="additionalNotes" name="additionalNotes" class="form-control"
+                                  rows="4" placeholder="Any additional information you'd like to provide"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Navigation -->
+            <div class="form-navigation">
+                <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">
+                    Previous
+                </button>
+                <button type="button" class="btn btn-outline" id="saveDraftBtn">
+                    Save as Draft
+                </button>
+                <button type="button" class="btn btn-primary" id="nextBtn">
+                    Next
+                </button>
+                <button type="button" class="btn btn-success" id="submitBtn" style="display: none;">
+                    Submit Application
+                </button>
+            </div>
+
+            <!-- Validation Summary -->
+            <div id="validationSummary" class="validation-summary" style="display: none;">
+                <h3>Please correct the following errors:</h3>
+                <ul id="validationList"></ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h2>Application Submitted Successfully!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Your application has been received and is being processed.</p>
+                <p><strong>Reference Number:</strong> <span id="referenceNumber"></span></p>
+                <p>Please save this reference number for your records.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="printSummaryBtn">
+                    Print Summary
+                </button>
+                <button type="button" class="btn btn-outline" id="newApplicationBtn">
+                    Start New Application
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <script src="/js/app.js" type="module"></script>
+</body>
+</html>
